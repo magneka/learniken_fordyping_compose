@@ -14,23 +14,23 @@
 Studer eksemplet Compose05 some er et GO api mot end MsSql server.
 Se på readme, der alt er beskrevet.
 
-Begynn med databasen, be om en dockerfile
-Så kan du legge til at den skal bruke .env file
-Så kan du be om at den skal persisteres i et volum
-Så kan du be om at den skal seedes ved første kjøring, pek på init sql.
-Kan du nå nå databasen med bat filer med select?
-Kan du be ai om å kjøre select inni databasen?
+ - Begynn med databasen, be om en dockerfile
+ - Så kan du legge til at den skal bruke .env file
+ - Så kan du be om at den skal persisteres i et volum
+ - Så kan du be om at den skal seedes ved første kjøring, pek på init sql.
+ - Kan du nå nå databasen med bat filer med select?
+ - Kan du be ai om å kjøre select inni databasen?
 
 Når du er sikker på at databasen virker, kan du se på dockerfilen til applikasjonen.
 
-Begynn med en enkel dockerfile for å bygge applikasjonen.
-Du må mappe porter så du når den fra utsiden, har du mye oppe kan du få portkonflikt.
-Du skal ikke kopiere kildekoden inn i containeren, men mappe opp foldere.
-Så kan du gjøre denne til ett trinns for debugging.
-Det er viktig at compose har stdin_open og tty, ellers stenges den ned før du vet ordet av det.  dockerfilen skal heller ikke starte applikasjonen, men en tail av konsollet holder lenge, bash også.
+ - Begynn med en enkel dockerfile for å bygge applikasjonen.
+ - Du må mappe porter så du når den fra utsiden, har du mye oppe kan du få portkonflikt.
+ - Du skal ikke kopiere kildekoden inn i containeren, men mappe opp foldere.
+ - Så kan du gjøre denne til ett trinns for debugging.
+ - Det er viktig at compose har stdin_open og tty, ellers stenges den ned før du vet ordet av det.  dockerfilen skal heller ikke starte applikasjonen, men en tail av konsollet holder lenge, bash også.
 
-Det er kanskje foldere som finnes inni containeren som ikke skal blø ut? (bin/obj)
-Du kan bruke healthcheck til å vente med å starte rest api containeren til databasen er oppe.
+ - Det er kanskje foldere som finnes inni containeren som ikke skal blø ut? (bin/obj)
+ - Du kan bruke healthcheck til å vente med å starte rest api containeren til databasen er oppe.
 
 Se nøye på filene i .vscode folderen. Disse vil du kanskje ta vare på, for ingen modeller klarer å produsere disse uten timesvis med halisunasjoner...
 Microsoft har endret spesifikasjoner på Launch filen, og det er kombinasjoner med launch og extensions som gjør at det fungerer, og det har ikke modellene fått med seg fordi man ofte ikke har en extensions file sjekket inn, men har installert extensions globalt.
