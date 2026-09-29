@@ -1,0 +1,55 @@
+@host = http://localhost:8080
+@contextPath = /api
+@baseUrl = {{host}}{{contextPath}}/api/customers
+@customerId = 1
+
+### Get all customers
+GET {{baseUrl}}
+Accept: application/json
+
+### Get customer by id
+GET {{baseUrl}}/{{customerId}}
+Accept: application/json
+
+### Create customer
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "firstName": "Ada",
+  "lastName": "Lovelace",
+  "email": "ada.lovelace@example.com",
+  "phone": "+1-555-0100",
+  "city": "London"
+}
+
+### Update customer
+PUT {{baseUrl}}/{{customerId}}
+Content-Type: application/json
+
+{
+  "firstName": "Ada",
+  "lastName": "Byron",
+  "email": "ada.byron@example.com",
+  "phone": "+1-555-0101",
+  "city": "Paris"
+}
+
+### Delete customer
+DELETE {{baseUrl}}/{{customerId}}
+
+### Create customer - validation error (blank name, invalid email)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "firstName": "",
+  "lastName": "Tester",
+  "email": "not-an-email",
+  "phone": "123",
+  "city": "Nowhere"
+}
+
+### Get customer - not found
+GET {{baseUrl}}/999999
+Accept: application/json

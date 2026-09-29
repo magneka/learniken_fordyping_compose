@@ -1,0 +1,6 @@
+@Compose01_HostAddress = http://localhost:8085
+
+GET {{Compose01_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

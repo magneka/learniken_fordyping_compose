@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Compose04ApiApplication",
+            "request": "launch",
+            "mainClass": "com.learniken.Compose04ApiApplication",
+            "projectName": "compose04-api",
+            "preLaunchTask": "maven: compile",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {
+                "SPRING_DATASOURCE_URL": "${env:SPRING_DATASOURCE_URL}",
+                "SPRING_DATASOURCE_USERNAME": "${env:SPRING_DATASOURCE_USERNAME}",
+                "SPRING_DATASOURCE_PASSWORD": "${env:SPRING_DATASOURCE_PASSWORD}",
+                "SPRING_JPA_HIBERNATE_DDL_AUTO": "${env:SPRING_JPA_HIBERNATE_DDL_AUTO}",
+                "SPRING_JPA_SHOW_SQL": "${env:SPRING_JPA_SHOW_SQL}"
+            }
+        },
+        {
+            "type": "java",
+            "name": "Debug Compose04ApiApplication (attach to spring-boot:run)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 5005,
+            "projectName": "compose04-api",
+            "preLaunchTask": "spring-boot: run (debug)"
+        }
+    ]
+}

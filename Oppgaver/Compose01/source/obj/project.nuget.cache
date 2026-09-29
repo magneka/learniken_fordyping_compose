@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "a41ZZLwT5PE=",
+  "success": true,
+  "projectFilePath": "C:\\Source\\Learniken_fordybning\\learniken_fordyping_compose\\Oppgaver\\Compose01\\source\\Compose01.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\magnea\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
+    "C:\\Users\\magnea\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "C:\\Source\\Learniken_fordybning\\learniken_fordyping_compose\\Oppgaver\\Compose01\\source\\Compose01.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Source\\Learniken_fordybning\\learniken_fordyping_compose\\Oppgaver\\Compose01\\source\\Compose01.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

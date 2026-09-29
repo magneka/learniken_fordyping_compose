@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:8080
+
+### Health check
+GET {{baseUrl}}/health
+
+### Get all customers
+GET {{baseUrl}}/customers
+
+### Get customer by id
+GET {{baseUrl}}/customers/1
+
+### Create a new customer
+# @name createCustomer
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "id": 0,
+  "firstName": "Test",
+  "lastName": "User",
+  "email": "test.user@example.com",
+  "phone": "12345678",
+  "city": "Oslo"
+}
+
+### Update the created customer
+PUT {{baseUrl}}/customers/11
+Content-Type: application/json
+
+{
+  "id": 11,
+  "firstName": "Testing",
+  "lastName": "Userson",
+  "email": "testing.userson@example.com",
+  "phone": "87654321",
+  "city": "Bergen"
+}
+
+### Delete the created customer
+DELETE {{baseUrl}}/customers/11
+
+### Get a non-existent customer (expect 404)
+GET {{baseUrl}}/customers/9999

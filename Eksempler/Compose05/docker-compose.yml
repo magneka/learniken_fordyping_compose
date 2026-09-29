@@ -1,0 +1,53 @@
+name: learniken_compose_05
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: learniken_compose_05_db
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "1433:1433"
+    volumes:
+      - db_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-C", "-S", "localhost", "-U", "sa", "-P", "${DB_PASSWORD}", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  db-init:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: learniken_compose_05_db_init
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./mssql/init:/init
+    entrypoint: ["/opt/mssql-tools18/bin/sqlcmd", "-C", "-S", "db", "-U", "sa", "-P", "${DB_PASSWORD}", "-v", "DBNAME=${DB_DATABASE}", "-i", "/init/init.sql"]
+
+  go-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: learniken_compose_05_go_api
+    environment:
+      DB_HOST: db
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8089:8080"
+      - "2345:2345"
+    volumes:
+      - ./go_api/source:/app
+      - /app/bin
+    stdin_open: true
+    tty: true
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+
+volumes:
+  db_data:

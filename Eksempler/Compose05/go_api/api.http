@@ -1,0 +1,22 @@
+@baseUrl = http://localhost:8089
+
+### List all customers
+GET {{baseUrl}}/customers
+
+### Create a customer
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "first_name": "Test",
+  "last_name": "Testesen",
+  "email": "test.testesen@example.com",
+  "phone": "12345678",
+  "city": "Oslo"
+}
+
+### Get a single customer by id
+GET {{baseUrl}}/customers/1
+
+### Delete a customer by id
+DELETE {{baseUrl}}/customers/1
